@@ -1,0 +1,20 @@
+﻿@media (min-width: 768px) {
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+    }
+
+        .navbar-nav > li {
+            float: none;
+            display: inline-block;
+        }
+
+    .navbar-default {
+        background-color: white;
+        border-color: white;
+    }
+
+        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+            background-color: white;
+        }
+}

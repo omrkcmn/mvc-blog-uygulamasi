@@ -1,0 +1,59 @@
+﻿@model MvcBlogProjesi.Models.Blog
+@using MvcBlogProjesi.Models
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="row">
+    <div class="col-md-8">
+        
+    </div>
+    <div class="col-md-8">
+        <h1>@Model.Baslik</h1>
+        <hr />
+
+        <p>
+            <span class="glyphicon glyphicon-time"></span>
+            @Model.EklenmeTarihi
+        </p>
+
+        <hr />
+        <img class="img-fluid" alt="Responsive image" src="@Model.Resim" alt="" />
+        <hr />
+
+        <blockquote>
+            <p>@Model.Aciklama</p>
+        </blockquote>
+
+        <p>
+            @Model.Icerik
+        </p>
+
+        <div class="comment">
+            <div class="well">
+                <h4>Yorum Bırakın:</h4>
+                <form role="form">
+                    <div class="form-group">
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+            <div class="media">
+                <img class="align-self-start mr-3" width="64px" height="64px" src="https://i.redd.it/byouosmm4ckz.png" alt="Generic placeholder image">
+                <div class="media-body">
+                    <h5 class="mt-0">Yorumlar</h5>
+                    <p>Yorum içeriği</p>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
