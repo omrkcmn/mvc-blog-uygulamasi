@@ -24,7 +24,7 @@ namespace MvcBlogProjesi.Controllers
                     Onay = i.Onay,
                     Resim = i.Resim
                 })
-                .Where(i => i.Onay == true && i.Anasayfa == true);
+                .Where(i => i.Onay == true && i.Anasayfa == true).OrderByDescending(i=>i.EklenmeTarihi);
             
             return View(bloglar.ToList());
         }

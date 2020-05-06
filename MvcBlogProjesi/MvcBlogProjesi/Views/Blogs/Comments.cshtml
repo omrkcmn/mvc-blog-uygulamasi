@@ -4,4 +4,13 @@
 
 
 
-
+@foreach (var item in Model)
+{
+    <div class="media">
+        <img class="align-self-start mr-3" width="64px" height="64px" src="https://i.redd.it/byouosmm4ckz.png" alt="Generic placeholder image">
+        <div class="media-body">
+            <h5 class="mt-0">@item.YazarAdi</h5>
+            <p>@item.Icerik</p>
+        </div>
+    </div>
+}

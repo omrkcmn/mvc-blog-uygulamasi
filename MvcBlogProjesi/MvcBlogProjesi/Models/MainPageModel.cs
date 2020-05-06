@@ -7,7 +7,7 @@ namespace MvcBlogProjesi.Models
 {
     public class MainPageModel
     {
-        public Blog blog { get; set; }
-        public Comment comment { get; set; }
+        public IEnumerable<Blog> blog { get; set; }
+        public IEnumerable<Comment> comment { get; set; }
     }
 }

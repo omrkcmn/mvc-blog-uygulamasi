@@ -4,24 +4,26 @@
 }
 
 @foreach (var blog in Model)
-    {
-        <div class="blog">
-            <a href=""><h3 class="page-header">@blog.Baslik</h3></a>
-            <p>
-                <span class="glyphicon glyphicon-time"></span>
-                @blog.EklenmeTarihi
-            </p>
-            <hr />
-            <img class="img-fluid" alt="Responsive image" src="@blog.Resim" />
-            <hr />
-            <p>
-                @blog.Aciklama
-            </p>
-            @Html.ActionLink("Daha Fazla...", "Details", "Blogs", new { id = @blog.Id }, new { @class = "btn btn-primary btn-xs" })
-            <br />
-            <br />
+{
+    <div class="blog">
+        
+        <h3>@Html.ActionLink(blog.Baslik,"Details","Blogs",new { id = blog.Id }, new { @class = "page-header" })</h3>
+        <p>
+            <span class="glyphicon glyphicon-time"></span>
+            @blog.EklenmeTarihi
+        </p>
+        <hr />
 
-        </div>
-    }
- @{ Html.RenderAction("CategoryList", "Category");}
+        <img class="img-fluid" alt="Responsive image" src="@blog.Resim" />
+        <hr />
+        <p>
+            @blog.Aciklama
+        </p>
+        @*@Html.ActionLink("Daha Fazla...", "Details", "Blogs", new { id = @blog.Id }, new { @class = "btn btn-primary btn-xs" })*@
+        <br />
+        <br />
 
+    </div>
+}
+
+@*{ Html.RenderAction("CategoryList", "Category");}*@

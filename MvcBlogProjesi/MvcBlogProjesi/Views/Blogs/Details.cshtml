@@ -1,10 +1,7 @@
 ﻿@model MvcBlogProjesi.Models.Blog
-@using MvcBlogProjesi.Models
 @{
     ViewBag.Title = "Details";
 }
-
-
 
 <div class="row">
     <div class="col-md-8">
@@ -12,8 +9,9 @@
     </div>
     <div class="col-md-8">
         <h1>@Model.Baslik</h1>
+        
         <hr />
-
+        
         <p>
             <span class="glyphicon glyphicon-time"></span>
             @Model.EklenmeTarihi

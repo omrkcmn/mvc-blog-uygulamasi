@@ -1,14 +1,22 @@
 ﻿@model IEnumerable<MvcBlogProjesi.Models.Category>
 
 
-<div class="col-md-6">
-    <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action active">
-            Kategoriler
-        </a>
-        @foreach (var item in Model)
-        {
-            <a href="" class="list-group-item list-group-item-action">@item.KategoriAdi</a>
-        }
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="justify-content-between align-items-center">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Kategoriler
+                    </a>
+                    @foreach (var item in Model)
+                    {
+                        <a href="" class="list-group-item list-group-item-action">@item.KategoriAdi</a>
+                    }
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>

@@ -15,7 +15,6 @@ namespace MvcBlogProjesi.Controllers
         private BlogContext db = new BlogContext();
 
 
-
         public ActionResult List(string q)
         {
 
@@ -60,7 +59,9 @@ namespace MvcBlogProjesi.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             Blog blog = db.Bloglar.Find(id);
+            
             if (blog == null)
             {
                 return HttpNotFound();
@@ -138,6 +139,18 @@ namespace MvcBlogProjesi.Controllers
             }
             ViewBag.CategoryId = new SelectList(db.Kategoriler, "Id", "KategoriAdi", blog.CategoryId);
             return View(blog);
+        }
+
+        
+        public ActionResult Onay(int? id)
+        {
+            var data = db.Bloglar.Find(id);
+            data.Onay = true;
+            data.Anasayfa = true;
+            db.SaveChanges();
+            TempData["Onay"] = true;
+            return RedirectToAction("Index");
+
         }
 
         // GET: Blogs/Delete/5

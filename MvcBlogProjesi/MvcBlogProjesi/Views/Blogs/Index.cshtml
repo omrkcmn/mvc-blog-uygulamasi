@@ -1,22 +1,31 @@
 ﻿@model IEnumerable<MvcBlogProjesi.Models.Blog>
 
 @{
-    ViewBag.Title = "Index";
+                /**/
+
+                ViewBag.Title = "Index";
 }
 
 <h2>Blog Listesi</h2>
-<hr/>
+<hr />
 
 <p>
-    @Html.ActionLink("Yeni Yazı Ekle", "Create",null,new { @class = "btn btn-primary" })
+    @Html.ActionLink("Yeni Yazı Ekle", "Create", null, new { @class = "btn btn-primary" })
 </p>
 <hr />
 
-@if (TempData["Blog"]!=null)
+@if (TempData["Blog"] != null)
 {
     var blog = (MvcBlogProjesi.Models.Blog)TempData["Blog"];
     <div class="alert alert-success" role="alert">
         <strong><span class="glyphicon glyphicon-ok"></span>@blog.Baslik</strong> Kayıt Edildi.
+    </div>
+}
+
+@if (TempData["Onay"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <strong><span class="glyphicon glyphicon-ok"></span>Başlık Onaylandı!</strong>
     </div>
 }
 <table class="table table-bordered table-hover table-striped">
@@ -35,53 +44,58 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Anasayfa)
-        </th> 
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Resim)
         </th>
-        <th style="width:300px"></th>
+        <th style="width:800px"></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.KategoriAdi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Baslik)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EklenmeTarihi)
-        </td>
-        <td>
-            @if (item.Onay)
-            {
-                <label class="label label-success">Onaylı</label>
-            }
-            else
-            {
-                <label class="label label-danger">Onay Bekliyor</label>
-            }
-        </td>
-        <td>
-            @if (item.Anasayfa)
-            {
-                <label class="label label-success">Onaylı</label>
-            }
-            else
-            {
-                <label class="label label-warning">Onaylı Değil</label>
-            }
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Resim)
-        </td>
-        <td>
-            @Html.ActionLink("Düzenle", "Edit", new { id=item.Id }, new { @class = "btn btn-warning btn-xs" }) |
-            
-            @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" })
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Category.KategoriAdi)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Baslik)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.EklenmeTarihi)
+    </td>
+    <td>
+        @if (item.Onay)
+        {
+            <label class="label label-success">Onaylı</label>
+        }
+        else
+        {
+            <label class="label label-danger">Onay Bekliyor</label>
+        }
+    </td>
+    <td>
+        @if (item.Anasayfa)
+        {
+            <label class="label label-success">Onaylı</label>
+        }
+        else
+        {
+            <label class="label label-warning">Onaylı Değil</label>
+        }
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Resim)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-xs" }) 
+
+        @Html.ActionLink("Sil", "Delete", new { id = item.Id }, new { @class = "btn btn-danger btn-xs" }) 
+        @if (item.Anasayfa == false)
+        {
+            @Html.ActionLink("Onay", "Onay", new { id = item.Id }, new { @class = "btn btn-success btn-xs" })
+        }
+    </td>
+</tr>
 }
 
 </table>

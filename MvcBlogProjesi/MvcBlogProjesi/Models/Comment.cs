@@ -13,7 +13,7 @@ namespace MvcBlogProjesi.Models
         public string YazarResmi { get; set; }
         public DateTime EklenmeTarihi { get; set; }
         public bool Onay { get; set; }
-        public int CevapId { get; set; }//Cevaplanacak yorumun ID değeri.
+        //public int CevapId { get; set; }//Cevaplanacak yorumun ID değeri.
 
         //Foreign Key
         public int BlogId { get; set; }
